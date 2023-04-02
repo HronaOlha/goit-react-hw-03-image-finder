@@ -30,7 +30,9 @@ export const Form = styled.form`
 `;
 
 export const Button = styled.button`
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 48px;
   border: 0;
@@ -46,11 +48,6 @@ export const Button = styled.button`
   &:hover {
     opacity: 1;
   }
-`;
-
-export const Label = styled.span`
-  width: 8px;
-  height: 8px;
 `;
 
 export const Input = styled.input`

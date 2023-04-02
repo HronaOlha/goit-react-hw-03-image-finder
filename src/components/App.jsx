@@ -7,26 +7,18 @@ export class App extends Component {
     query: '',
     loader: false,
   };
-  componentDidMount() {
+
+  handleSubmit = queryValue => {
+    console.log(queryValue);
     this.setState({ loader: true });
+    fetch(
+      `https://pixabay.com/api/?q=${queryValue}&page=1&key=33669758-051ccdd3e1f8c77fcf59fb873&image_type=photo&orientation=horizontal&per_page=12`
+    )
+      .then(res => res.json())
+      .then(query => this.setState({ query }))
+      .finally(this.setState({ loader: false }));
+  };
 
-    setTimeout(() => {
-      fetch(
-        'https://pixabay.com/api/?q=cat&page=1&key=33669758-051ccdd3e1f8c77fcf59fb873&image_type=photo&orientation=horizontal&per_page=12'
-      )
-        .then(res => res.json())
-        .then(query => this.setState({ query }))
-        .finally(this.setState({ loader: false }));
-    }, 1000);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log('hello');
-    this.setState({
-      query: 'hello',
-    });
-  }
   render() {
     return (
       <>
