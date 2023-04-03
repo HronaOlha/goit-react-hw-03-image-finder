@@ -15,6 +15,7 @@ export class Searchbar extends Component {
     }
 
     this.props.onSubmit(this.state.queryValue.toLowerCase());
+
     this.setState({
       queryValue: '',
     });
