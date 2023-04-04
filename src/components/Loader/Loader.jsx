@@ -7,7 +7,7 @@ export const Loader = () => {
       <LineWave
         height="100"
         width="100"
-        color="#6200ff"
+        color="#3f51b5"
         ariaLabel="line-wave"
         wrapperStyle={{}}
         wrapperClass=""
