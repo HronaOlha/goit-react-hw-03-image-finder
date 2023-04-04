@@ -8,8 +8,10 @@ export class Modal extends Component {
   }
 
   handleKeydown = event => {
+    const { toggleModal } = this.props;
+
     if (event.code === 'Escape') {
-      this.props.closeModal();
+      toggleModal();
     }
   };
 
@@ -18,16 +20,19 @@ export class Modal extends Component {
   }
 
   handleBackdropClick = event => {
+    const { toggleModal } = this.props;
+
     if (event.target === event.currentTarget) {
-      this.props.closeModal();
+      toggleModal();
     }
   };
 
   render() {
+    const { largeImageURL, alt } = this.props;
     return (
       <Overlay onClick={this.handleBackdropClick}>
         <ModalWindow>
-          <img src={this.props.largeImageURL} alt={this.props.alt} />
+          <img src={largeImageURL} alt={alt} />
         </ModalWindow>
       </Overlay>
     );
@@ -35,7 +40,7 @@ export class Modal extends Component {
 }
 
 Modal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   largeImageURL: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
 };
